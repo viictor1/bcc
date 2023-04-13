@@ -1,2 +1,3 @@
 # bcc
-Repositório Bachalerado em Ciência da Computação
+Repositório para guardar atividades/trabalhos do meu curso de Bachalerado em Ciência da Computação na UTFPR.
+Cada branch representa um per
