@@ -5,10 +5,25 @@ invertido. Para tanto, lembre-se de que utilizamos a base 10, o que torna possí
 número para esquerda multiplicando-o por 10.
 """
 
-num = int(input("Digite um numero "))
-reserva = num
+reserva = num = int(input("Digite um numero "))
 invertido = 0
 i = 0
+invertido = 0
 
-while i <= reserva:
-    
+while reserva > 0:
+    reserva //= 10
+    i += 1
+
+reserva = num
+
+while reserva > 0:
+    i -= 1
+    invertido += (reserva % 10) * (10 ** i)
+    reserva //= 10
+
+if num == invertido:
+    print(f"{num} = {invertido}")
+    print('Palíndromo!')
+else:
+    print(f"{num} != {invertido}")
+    print('Não é palíndromo!')
