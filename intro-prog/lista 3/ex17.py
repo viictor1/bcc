@@ -7,19 +7,12 @@ número para esquerda multiplicando-o por 10.
 
 reserva = num = int(input("Digite um numero "))
 invertido = 0
-i = 0
-invertido = 0
+digito = 0
 
 while reserva > 0:
+    digito = reserva % 10
     reserva //= 10
-    i += 1
-
-reserva = num
-
-while reserva > 0:
-    i -= 1
-    invertido += (reserva % 10) * (10 ** i)
-    reserva //= 10
+    invertido = invertido * 10 + digito
 
 if num == invertido:
     print(f"{num} = {invertido}")
