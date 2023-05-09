@@ -14,5 +14,4 @@ for i in range(0, linhas * 2):
     else:
         linha += "\b\b" + char
         print(f"{linha}")
-
-    
+        
