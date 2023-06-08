@@ -4,17 +4,12 @@ de list.reverse()
 """
 
 def invertList(vet):
-    reverse = vet.copy()
-    for i in range(len(vet)):
-        aux = vet[i]
-        reverse[i] = vet[len(vet)-i - 1]
-        reverse[len(vet)-i - 1] = aux
+    for i in range(len(vet), 0 , -1):
+        print(f"{vet[i - 1]}")
     return reverse
 
 def main():
     vet = [1, 2, 3, 4, 5]
-    reverse = invertList(vet)
-    print(f"Lista Original: {vet}")
-    print(f"Lista Reversa: {reverse}")
+    invertList(vet)
 
 main()
