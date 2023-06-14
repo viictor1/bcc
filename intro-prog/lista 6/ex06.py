@@ -14,6 +14,6 @@ def find(ls, num):
     return
 
 def main():
-    print(f"{find([0, 2, 3], 2)}")
+    print(f"{find([0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 7)}")
 
 main()

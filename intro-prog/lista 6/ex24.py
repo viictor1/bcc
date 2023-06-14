@@ -13,14 +13,14 @@ def checkAnswers(check, answers):
     acertos = 0
     for i in range(len(answers) // 20):
         for j in range(20):
-            if check[j] == answers[j + 20 ** i]:
+            if check[j] == answers[j + 20 * i]:
                 acertos += 1
         print(f"Acertos do aluno {i + 1}: {acertos}")
         acertos = 0
 
 def main():
-    check = ['A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A']
-    answers = ['A', 'A', 'B', 'A', 'C', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'A', 'D', 'D', 'A', 'A', 'A', 'A', 'A', 'A', 'B', 'A', 'A', 'A', 'A', 'A', 'A', 'C', 'A']
+    check = ['A'] * 20
+    answers = ['A'] * 100
     checkAnswers(check, answers)
 
 main()

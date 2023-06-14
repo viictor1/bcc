@@ -4,9 +4,8 @@ de list.reverse()
 """
 
 def invertList(vet):
-    for i in range(len(vet), 0 , -1):
-        print(f"{vet[i - 1]}")
-    return reverse
+    for i in range(len(vet) -1, -1 , -1):
+        print(f"{vet[i]} ", end="")
 
 def main():
     vet = [1, 2, 3, 4, 5]

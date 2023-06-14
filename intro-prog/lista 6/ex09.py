@@ -14,6 +14,6 @@ def isSorted(ls):
     return True
 
 def main():
-    print(f"{isSorted([0, 1, 2, 3, 21, 4])}")
+    print(f"{isSorted([0, 1, 2, 3, 4])}")
 
 main()

@@ -7,30 +7,29 @@ ser retornada.
 
 def binarySum(bin1, bin2):
     carry = 0
-    sum = bin1.copy()
-    sum.append(0)
+    sum = [0] * len(bin1)
 
     for i in range(len(bin1) - 1, -1, -1):
         if bin1[i] + bin2[i] + carry == 3:
-            sum[i + 1] = 1
+            sum[i] = 1
             carry = 1
 
         elif bin1[i] + bin2[i] + carry == 2:
-            sum[i + 1] = 0
+            sum[i] = 0
             carry = 1
         
-        if bin1[i] + bin2[i] + carry == 1:
-            sum[i + 1] = 1
+        elif bin1[i] + bin2[i] + carry == 1:
+            sum[i] = 1
             carry = 0
 
-        if bin1[i] + bin2[i] + carry == 0:
-            sum[i + 1] = 0
+        elif bin1[i] + bin2[i] + carry == 0:
+            sum[i] = 0
             carry = 0
     
     return sum
 
 def main():
-    print(f"{binarySum([1,1,0,0,1,1,0,1], [0,1,1,1,0,1,1,0])}")
+    print(f"{binarySum([0,1,0,0,1,1,0,1], [0,1,1,1,0,1,1,0])}")
     print(f"{binarySum([0,1], [1,0])}")
 
 main()  

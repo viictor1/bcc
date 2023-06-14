@@ -1,6 +1,6 @@
 """
 11. Escreva uma função que recebe uma lista vet e devolve o maior e o menor elementos. Obs: Não é
-permitido o uso de mint() e max()
+permitido o uso de min() e max()
 """
 
 def findMinMax(ls):
