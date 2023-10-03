@@ -17,19 +17,26 @@ void fixName(char name[]){
 
             wordStarted = 1;
         }else{
-            if((wordStarted == 1 && name[i] != ' ') || (wordStarted == 0)){
-                for(int j = i; name[j] != 0; j++){
-                    name[j] = name[j+1];
-                }
-                i--;
+            if((name[i] == ' ') && (((name[i-1] >= 'A' && name[i-1] <= 'Z') 
+                || (name[i-1] >= 'a' && name[i-1] <= 'z'))
+                && ((name[i+1] >= 'A' && name[i+1] <= 'Z')
+                || (name[i+1] >= 'a' && name[i+1] <= 'z')))){
+                    wordStarted = 0;
+                    continue;
+            } 
+            for(int j = i; name[j] != 0; j++){
+                name[j] = name[j+1];
             }
-            wordStarted = 0;
+            i--;
         }
     }
-    printf("%s\n", name);
 }
 
 int main(){
-    char name[] = "   VITIN rIQue!!  32";
+    char name[] = " JoHn! Do5e3 ";
+    char name2[] = "   VITIN rIQue!!  32";
     fixName(name);
+    printf("%s\n", name);
+    fixName(name2);
+    printf("%s\n", name2);
 }
