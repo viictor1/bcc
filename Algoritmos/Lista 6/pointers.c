@@ -53,16 +53,51 @@ void getMinMax(int size, const int *v, int *min, int *max){
     }
 }
 
+/*6. Escreva uma função que recebe as dimensões e o endereço de uma matriz (vetor bidimensional).
+A função deve imprimir seu conteúdo, sem utilizar o operador de índice [ ] para acessar os
+elementos da matriz.*/
+
+void printMatrix(int rows, int columns, const int *m){
+    for(int i = 0; i < rows * columns; i++){
+        //if(i % columns == 0 && i != 0) printf("\n");
+        //printf("%d ", *(m + i));
+    }
+}
+
+/*7. Escreva uma função que recebe o endereço de uma string. A função deve concatenar, ao final da
+string original, uma barra vertical, seguida do conteúdo da string de forma invertida. Considere que
+o vetor possui comprimento suficiente para a adição dos novos caracteres. Você não deve utilizar o
+operador de índice [ ] para acessar os caracteres da string.*/
+
+void makeMirrored(char *str){
+    for(;*str != 0; str++);
+    *str = '|';
+    char *reverse = str--;
+    for(;*reverse != 0; reverse--){
+        str++;
+        *str = *reverse;
+    }
+}
+
 int main(){
     int a = 5;
     int b = 6;
     int array[] = {0, 1, 2, 3, 4};
     int min;
     int max;
+    int m[3][4] = {
+        {1, 2, 3, 4},
+        {5, 6, 7, 8},
+        {9,10,11,12}
+    };
+    char name[40] = "John Doe";
 
     printAddress();
     add(&a, &b);
     printArray(5, array);    
     printArrayReversed(5, array);
     getMinMax(5, array, &min, &max);
+    printMatrix(3, 4, (int*)m);
+    makeMirrored(name);
+    printf("%s\n", name);
 }
