@@ -79,6 +79,43 @@ void makeMirrored(char *str){
     }
 }
 
+/*8. Escreva uma função que recebe o endereço de duas strings e calcula a distância de Hamming
+entre ambas. A distância de Hamming corresponde à quantidade de caracteres diferentes em
+posições correspondentes nas duas strings. Considere que as strings terão o mesmo comprimento,
+mas certifique-se de que o código não acessa posições inválidas para strings de tamanhos
+distintos.*/
+
+int hammingDistance(const char *s1, const char *s2){
+    int hamming = 0;
+    while(*s1 != 0 || *s2 != 0){
+        if(*s1 != *s2) hamming++;
+        s1++;
+        s2++;
+    }
+
+    return hamming;
+}
+
+/*9. Escreva uma função que recebe o endereço de uma string str e de um vetor de strings words (de
+até 49 caracteres). A função deve devolver o endereço da string de words que seja mais similar à
+str, isto é, com a menor distância de Hamming. OBS: faça chamadas à função do exercício anterior
+para encontrar as distâncias entre str e cada uma das palavras em words.*/
+
+char* findMostSimilarWord(const char *str, int n, char list[n][50]){
+    int smallest = 50;
+    int index = 0;
+    int dis = 0;
+
+    for(int i = 0; i < n; i++){
+        dis = hammingDistance(str, list[i]);
+        if(dis < smallest){
+            smallest = dis;
+            index = i;
+        }
+    }
+    return list[index];
+}
+
 int main(){
     int a = 5;
     int b = 6;
@@ -91,6 +128,9 @@ int main(){
         {9,10,11,12}
     };
     char name[40] = "John Doe";
+    char s1[] = "banana";
+    char s2[] = "cabana";
+    char words[][50] = {"cabana", "savana", "bacana", "halana"};
 
     printAddress();
     add(&a, &b);
@@ -99,5 +139,7 @@ int main(){
     getMinMax(5, array, &min, &max);
     printMatrix(3, 4, (int*)m);
     makeMirrored(name);
-    printf("%s\n", name);
+    int dis = hammingDistance(s1, s2);
+    char* mostSimilar = findMostSimilarWord("banana", 4, words);
+    printf("%s", mostSimilar);
 }
