@@ -116,6 +116,88 @@ char* findMostSimilarWord(const char *str, int n, char list[n][50]){
     return list[index];
 }
 
+/*10. Escreva uma função que recebe o endereço de um Rect e imprime um tablado de acordo com a
+posição x,y e as dimensões width e height. Você pode considerar cada caractere do terminal
+como uma unidade para posição/tamanho.*/
+
+struct rect {
+int x, y, width, height; // é possível declarar os campos em uma só linha
+};
+typedef struct rect Rect;
+
+void printBoard(Rect* board){
+    for(int i = 0; i < board->x; i++){
+        printf("\n");
+    }
+
+    for(int i = 0; i < board->width; i++){
+        for(int j = 0; j < board->x; j++){
+            printf(" ");
+        }
+        for(int j = 0; j < board->width; j++){
+            printf("x");
+        }
+        printf("\n");
+    }
+
+}
+
+/*11. Modifique a função do exercício anterior para que receba o endereço de um Point e o imprima
+dentro de um tablado de dimensões definido por um Rect. As coordenadas do Point devem ser
+relativas à do Rect, isto é, um Point na posição (0,0) deve ser desenhado no canto esquerdo
+superior do Rect. Caso a posição do Point extrapole os limites do Rect, não deve ser desenhado.*/
+
+struct point {
+    int x, y; // é possível declarar os campos em uma só linha
+    char symbol;
+};
+typedef struct point Point;
+
+void printBoard2(Point* point, Rect* board){
+    for(int i = 0; i < board->x; i++){
+        printf("\n");
+    }
+
+    for(int i = 0; i < board->width; i++){
+        for(int j = 0; j < board->x; j++){
+            printf(" ");
+        }
+        for(int j = 0; j < board->width; j++){
+            if(i == point->x && j == point->y){
+                printf("%c", point->symbol);
+                continue;
+            }
+            printf("x");
+        }
+        printf("\n");
+    }
+}
+
+/*12. Modifique a função do exercício anterior para que receba o endereço de vetor de Point. A função
+deve imprimir todos os pontos dentro do tablado, seguindo as mesmas orientações do exercício
+mencionado.*/
+
+void printBoard3(Point* points, Rect* board){
+    for(int i = 0; i < board->x; i++){
+        printf("\n");
+    }
+
+    for(int i = 0; i < board->width; i++){
+        for(int j = 0; j < board->x; j++){
+            printf(" ");
+        }
+        for(int j = 0; j < board->width; j++){
+            if(i == points->x && j == points->y){
+                printf("%c", points->symbol);
+                points++;
+                continue;
+            }
+            printf("x");
+        }
+        printf("\n");
+    }
+}
+
 int main(){
     int a = 5;
     int b = 6;
@@ -141,5 +223,10 @@ int main(){
     makeMirrored(name);
     int dis = hammingDistance(s1, s2);
     char* mostSimilar = findMostSimilarWord("banana", 4, words);
-    printf("%s", mostSimilar);
+    Rect rect = {5,5,5,5}; // posição 5,5 (x,y) e dimensões 10x10 (width,height)
+    //printBoard(&rect);
+    Point point = {1,4,'A'}; // posição 0,0 dentro do tablado
+    //printBoard2(&point, &rect);
+    Point points[] = { {0,0,'A'}, {2,3,'B'}, {4,4,'C'} };
+    printBoard3(points, &rect);
 }
