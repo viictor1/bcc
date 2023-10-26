@@ -66,17 +66,10 @@
     <wire from="(660,220)" to="(740,220)"/>
     <wire from="(600,140)" to="(660,140)"/>
     <wire from="(380,140)" to="(380,150)"/>
-    <comp lib="4" loc="(600,140)" name="ROM">
-      <a name="addrWidth" val="24"/>
-      <a name="dataWidth" val="32"/>
-      <a name="contents">addr/data: 24 32
-2
-</a>
-    </comp>
-    <comp lib="0" loc="(740,220)" name="Pin">
-      <a name="facing" val="west"/>
-      <a name="output" val="true"/>
+    <comp lib="0" loc="(200,450)" name="Pin">
       <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="PC Adress"/>
       <a name="labelloc" val="east"/>
     </comp>
     <comp lib="0" loc="(380,140)" name="Splitter">
@@ -84,11 +77,20 @@
       <a name="fanout" val="24"/>
       <a name="incoming" val="24"/>
     </comp>
-    <comp lib="0" loc="(200,450)" name="Pin">
+    <comp lib="0" loc="(740,220)" name="Pin">
+      <a name="facing" val="west"/>
+      <a name="output" val="true"/>
       <a name="width" val="32"/>
       <a name="tristate" val="false"/>
-      <a name="label" val="PC Adress"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="4" loc="(600,140)" name="ROM">
+      <a name="addrWidth" val="24"/>
+      <a name="dataWidth" val="32"/>
+      <a name="contents">addr/data: 24 32
+2 123412 1234 13*0 234 1324 31243 13*0
+2314123 1324 1324 dafad 12*0 cda
+</a>
     </comp>
     <comp lib="0" loc="(340,450)" name="Splitter">
       <a name="fanout" val="32"/>
@@ -100,51 +102,64 @@
     <a name="clabel" val="MemWrite"/>
     <a name="clabelup" val="east"/>
     <a name="clabelfont" val="SansSerif plain 12"/>
+    <wire from="(320,240)" to="(320,500)"/>
     <wire from="(530,370)" to="(530,380)"/>
-    <wire from="(140,360)" to="(230,360)"/>
+    <wire from="(150,380)" to="(210,380)"/>
     <wire from="(520,260)" to="(520,370)"/>
-    <wire from="(150,220)" to="(430,220)"/>
-    <wire from="(230,240)" to="(230,360)"/>
-    <wire from="(230,240)" to="(430,240)"/>
-    <wire from="(570,220)" to="(660,220)"/>
+    <wire from="(250,70)" to="(330,70)"/>
+    <wire from="(330,70)" to="(330,220)"/>
+    <wire from="(150,500)" to="(320,500)"/>
+    <wire from="(570,220)" to="(670,220)"/>
+    <wire from="(320,240)" to="(430,240)"/>
+    <wire from="(330,220)" to="(430,220)"/>
     <wire from="(520,370)" to="(530,370)"/>
     <wire from="(500,260)" to="(500,380)"/>
     <wire from="(460,260)" to="(460,380)"/>
-    <comp lib="0" loc="(660,220)" name="Pin">
+    <comp lib="0" loc="(670,220)" name="Pin">
       <a name="facing" val="west"/>
       <a name="output" val="true"/>
       <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
       <a name="labelloc" val="east"/>
-    </comp>
-    <comp lib="0" loc="(140,360)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="label" val="B"/>
-    </comp>
-    <comp lib="0" loc="(500,380)" name="Clock">
-      <a name="facing" val="north"/>
-      <a name="labelloc" val="north"/>
-    </comp>
-    <comp lib="0" loc="(150,220)" name="Pin">
-      <a name="output" val="true"/>
-      <a name="width" val="32"/>
-      <a name="label" val="A"/>
-    </comp>
-    <comp lib="4" loc="(570,220)" name="RAM">
-      <a name="addrWidth" val="24"/>
-      <a name="dataWidth" val="32"/>
-      <a name="bus" val="separate"/>
     </comp>
     <comp lib="0" loc="(460,380)" name="Pin">
       <a name="facing" val="north"/>
       <a name="tristate" val="false"/>
       <a name="label" val="MemWrite"/>
     </comp>
+    <comp lib="0" loc="(150,500)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="B"/>
+    </comp>
+    <comp lib="0" loc="(250,70)" name="Splitter">
+      <a name="facing" val="west"/>
+      <a name="fanout" val="24"/>
+      <a name="incoming" val="24"/>
+    </comp>
+    <comp lib="0" loc="(150,380)" name="Pin">
+      <a name="width" val="32"/>
+      <a name="tristate" val="false"/>
+      <a name="label" val="A"/>
+    </comp>
     <comp lib="0" loc="(530,380)" name="Pin">
       <a name="facing" val="north"/>
       <a name="tristate" val="false"/>
       <a name="label" val="MemRead"/>
       <a name="labelloc" val="east"/>
+    </comp>
+    <comp lib="0" loc="(210,380)" name="Splitter">
+      <a name="fanout" val="32"/>
+      <a name="incoming" val="32"/>
+    </comp>
+    <comp lib="4" loc="(570,220)" name="RAM">
+      <a name="addrWidth" val="24"/>
+      <a name="dataWidth" val="32"/>
+      <a name="bus" val="separate"/>
+    </comp>
+    <comp lib="0" loc="(500,380)" name="Clock">
+      <a name="facing" val="north"/>
+      <a name="labelloc" val="north"/>
     </comp>
   </circuit>
 </project>
