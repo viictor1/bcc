@@ -12,6 +12,8 @@ int checkOrCreate(const char *filepath){
         if(!file)
             return 0;
     }
+
+    fclose(file);
     return 1;
 }
 

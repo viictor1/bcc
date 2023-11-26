@@ -5,12 +5,6 @@ com 0.*/
 
 #include <stdio.h>
 
-void initiateArray(int size, int v[]){
-    for(int i =0; i < size; i++){
-        v[i] = 0;
-    }
-}
-
 void printArray(int size, int v[]){
     for(int i = 0; i < size; i++){
         printf("%d ", v[i]);
@@ -19,31 +13,42 @@ void printArray(int size, int v[]){
 }
 
 void arrayIntersec(int size1, int v1[], int size2, int v2[], int v3[]){
+    int menor;
+    int maior;
+    int index = 0;
+
     if(size1 > size2){
-        for(int i = 0; i < size2; i++){
-            for(int j = 0; j < size1; j++){
-                if(v2[i] == v1[j]){
-                    v3[i] = v2[i];
-                }
-            }
-        }
+        maior = size1;
+        menor = size2;
     }
     else{
-        for(int i = 0; i < size1; i++){
-            for(int j = 0; j < size2; j++){
+        maior = size2;
+        menor = size1;
+    }
+
+    for(int i = 0; i < maior; i++){
+        for(int j = 0; j < menor; j++){
+            if(maior == size1){
                 if(v1[i] == v2[j]){
-                    v3[i] = v1[i];
+                    v3[index] = v2[j];
+                    index++;
+                }
+            }
+            else{
+                if(v2[i] == v1[j]){
+                    v3[index] = v2[i];
+                    index++;
                 }
             }
         }
     }
-
 }
 
 int main(){
-    int v2[5] = {1,2,3,4,5};
-    int v1[3] = {2,3,8};
+    int v2[5] = {1,2,3,4,8};
+    int v1[4] = {1,3,5,8};
     int v3[3] = {0};
-    arrayIntersec(3, v1, 5, v2, v3);
+    arrayIntersec(5, v2, 4, v1, v3);
     printArray(3, v3);
+    return 0;
 }

@@ -14,6 +14,8 @@ int printContent(const char* filepath){
     while((c = fgetc(file)) != EOF){
         printf("%c", c);
     }
+
+    fclose(file);
     return 1;
 }
 

@@ -11,6 +11,8 @@ int fileExists(const char *filepath){
         return 0;
     }
     return 1;
+
+    fclose(file);
 }
 
 int main(){

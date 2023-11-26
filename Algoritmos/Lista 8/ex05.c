@@ -11,6 +11,7 @@ int saveString(const char *filepath, const char *text){
     for(int i = 0; text[i] != 0; i++){
         fputc(text[i], file);
     }
+    fclose(file);
     return 1;
 }
 

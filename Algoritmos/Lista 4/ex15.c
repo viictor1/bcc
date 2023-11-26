@@ -3,9 +3,9 @@
 #include <stdio.h>
 
 int checkIdentity(int rows, int columns, int m[rows][columns]){
-    for(int i = 0; i < rows; i++){
-        for(int j = 0; j < columns; j++){
-            if(i == j && m[i][j] != 1) return 0;
+    for(int i = 0; i < rows; i++){ 
+        for(int j = 0; j < columns; j++){ 
+            if(i == j && m[i][j] != 1) return 0; 
             if(i != j && m[i][j] != 0) return 0;
         }
     }
@@ -19,5 +19,5 @@ int main(){
             0, 0, 1
     };
     int res = checkIdentity(3, 3, m);
-    printf("%d\n", res);
 }
+
