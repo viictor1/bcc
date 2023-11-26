@@ -10,18 +10,31 @@ char **getWords(const char *filepath, const char *separatores) {
     FILE *file = fopen(filepath, "r");
     if (!file) return NULL;
 
-    int wordsSize = 1;
+    int wordsSize = 10;
+    int wordLength = 10;
+
     char **words = malloc(wordsSize * sizeof(char *));
     for (int i = 0; i < wordsSize; i++) {
-        words[i] = malloc(10 * sizeof(char));
+        words[i] = malloc(wordLength * sizeof(char));
     }
 
     char c;
     int i = 0;
     int j = 0;
     int separator = 0;
+
     while ((c = fgetc(file)) != EOF) {
-        separator = 0;
+        
+        if(j >= wordLength){
+            wordLength++;
+            words[i] = realloc(words[i], wordLength * sizeof(char));
+        }
+        else if (i >= wordsSize) {
+            wordsSize++;
+            words = realloc(words, wordsSize * sizeof(char *));
+            words[i] = malloc(wordLength * sizeof(char));
+        }
+
         for (int k = 0; separatores[k] != 0; k++) {
             if (c == separatores[k]) {
                 separator = 1;
@@ -29,34 +42,18 @@ char **getWords(const char *filepath, const char *separatores) {
             }
         }
 
-        if (separator || c == '\n') {
+        if (separator) {
             words[i][j] = '\0';
             separator = 0;
             i++;
             j = 0;
-
-            if (i >= wordsSize) {
-                wordsSize++;
-                words = realloc(words, wordsSize * sizeof(char *));
-                words[i] = malloc(10 * sizeof(char));
-            }
-
-            continue;
+            wordLength = 10;
         }
-
-        words[i][j] = c;
-        j++;
-
-        if (j >= 10) {
-            j = 0;
-            i++;
-
-            if (i >= wordsSize) {
-                wordsSize++;
-                words = realloc(words, wordsSize * sizeof(char *));
-                words[i] = malloc(10 * sizeof(char));
-            }
+        else{
+            words[i][j] = c;
+            j++;
         }
+        
     }
 
 
