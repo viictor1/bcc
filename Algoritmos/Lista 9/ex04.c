@@ -29,6 +29,7 @@ void countAllWords(const char *filepath){
             strcpy(lista[count].str, str);
             lista[count].ocorrencias++;
             count++; 
+            achou = 0;
         }
         
     }
