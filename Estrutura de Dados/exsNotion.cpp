@@ -121,7 +121,7 @@ int main(){
     int pos = stringFoundFirst("o rato roeu a roupa do rei de roma", 'r');
     cout << pos << "\n";
 
-    cout << isLetter('a') << "\n";
+    cout << isLetter('a') << "\n";jj
 
     cout << checkName(" Chuck Kick  Norris ") << "\n";
 
