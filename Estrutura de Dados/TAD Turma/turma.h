@@ -3,73 +3,76 @@
 #include <string>
 using namespace std;
 
-class Turma{
+class Turma {
     private:
-        int codigoDisciplina;
-        int codigoTurma;
+        string codDisciplina;
+        string codTurma;
         string semestre;
-        Aluno* alunos;
+
+        Aluno** alunos;
+        int tamVetor;
+        int qtde;
+
 
     public:
-        Turma(int codigoDisciplina, int codigoTurma, string semestre, Aluno* alunos){
-            if(semestre.empty()){
-                cout << "Semestre não pode possuir um valor vazio";
+        Turma(string semestre, int tamVetor){
+            if(semestre == ""){
                 return;
-            };
-
-            this->codigoDisciplina = codigoDisciplina;
-            this->codigoTurma = codigoTurma;
+            }
             this->semestre = semestre;
-            this->alunos = alunos;
+            this->codTurma = "";
+            this->codDisciplina = "";
+
+            this->alunos = new Aluno*[tamVetor];
+            this->tamVetor = tamVetor;
+            this->qtde = 0;
         }
 
-        void setCodigoDisciplina(int codigoDisciplina){
-            this->codigoDisciplina = codigoDisciplina;
+        ~Turma(){
+            delete[] this->alunos;
         }
 
-        void setCodigoTurma(int codigoTurma){
-            this->codigoTurma = codigoTurma;
-        }
-
-        int getCodigoDisciplina(){
-            return this->codigoDisciplina;
-        }
-
-        int getCodigoTurma(){
-            return this->codigoTurma;
-        }
-
-        string getSemestre(){
-            return this->semestre;
-        }
-
-        Aluno* getAlunos(){
-            return this->alunos;
-        }
-
-        void matricularAluno(Aluno aluno){
-            this->alunos->push_back(aluno);        
-        }
-
-        void desmatricularAluno(Aluno aluno){
-            Aluno aluno = std::find(alunos.begin(), alunos.end(), aluno);
-
-            if (aluno != alunos.end()) {
-                this->alunos->erase(aluno);
-            } 
-        }
-
-        void listarAlunos(){
-            for (Aluno* aluno : alunos) {
-                cout << "(" << aluno->ra << ", " << aluno->nome << ")" << endl;
-
+        bool matricula(Aluno *a){
+            if(qtde >= tamVetor){
+                return false;
             }
+
+            this->alunos[qtde] = a;
+            qtde++;
+
+            return true;
         }
 
-        ~Turma() { 
-            cout << "Destruindo" << endl; 
-            for (Aluno* aluno : alunos) {
-                delete aluno; 
+        int cancelaMatricula(string ra){
+            for(int i = 0; i < qtde; i++){
+                if(this->alunos[i]->getRa() == ra){
+                    for(int j = i; j < qtde - 1; j++){
+                        this->alunos[j] = this->alunos[j+1];
+                    }
+                    qtde--;
+
+                    return i;
+                }
             }
+
+            return -1;
         }
+
+        void imprime(){
+            cout << "Codigo da turma: " << codTurma << " Semestre: " << semestre << endl;
+            for(int i = 0; i < qtde; i++){
+                this->alunos[i]->imprimir();
+            }
+        };
+
+        string getCodDisciplina() { return codDisciplina; }
+
+        string getCodTurma() { return codTurma; }
+
+        string getSemestre() { return semestre; }
+
+        void setCodDisciplina(string codDisciplina) { this->codDisciplina = codDisciplina; }
+
+        void setCodTurma(string codTurma) { this->codTurma = codTurma; }
+
 };

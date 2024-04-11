@@ -5,11 +5,20 @@
 #include "turma.h"
 
 int main(){
-    Aluno* a1 = new Aluno("a111", "Joao");
-    Aluno* a2 = new Aluno("a222", "Maria");
-    Aluno *alunos = new Aluno[44];
-    
-    Turma turma = new Turma(1, 2, "2024-1", alunos);
+    Turma* t1 = new Turma("2024-1", 100);
+    Turma* t2 = new Turma("2023-2", 20);
 
-    delete(turma);
+    Aluno* a1 = new Aluno("1", "Joao");
+    Aluno a2("2", "Maria");
+
+    t1->matricula(a1);
+    t1->matricula(&a2);
+    t1->matricula(new Aluno("3", "Jose"));
+    t1->imprime();
+    t1->cancelaMatricula("2");
+    t1->imprime();
+
+    delete t1;
+    delete t2;
+    delete a1;
 }
