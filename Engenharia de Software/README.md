@@ -20,3 +20,9 @@ Diz que as interfaces de um sistema devem ser quebradas em interfaces cada vez m
 
 Exemplo: (link)
 Neste exemplo, são implementadas 3 interfaces distintas que realizam uma ação específica: trabalhar, comer e dormir. A classe "Trabalhador Humano" implementa as três interfaces, mas o "Trabalhador Robô" apenas implementa a interface de trabalhar. Ao fazer essa separação entre interfaces possibilita as classes implementarem somente os métodos necessários.
+
+### Demeter
+Define que os métodos de uma classe devem utilizar somente métodos: da própria classe, parâmetros passados, objetos criados dentro do método e atributos da classe. Isso contribui para deixar as interfaces mais simples, diminuir acoplamento e deixar mais simples de dar manutenção. 
+
+Exemplo: (link)
+No exemplo, é mostrado duas formas de como conseguir o modelo do carro de uma Pessoa, a primeiro acessa a pessoa, depois acessa o carro e por fim consegue o modelo, esse método fere o princípio de deméter porque permite que o carro seja acessado indiretamente pela classe Pessoa. A segunda opção não fere o princípio porque implementa um método que acessa e retorna diretamente o modelo do carro, com isso o usuário não necessita saber da estrutura interna da classe Carro, e uma mudança na classe.
