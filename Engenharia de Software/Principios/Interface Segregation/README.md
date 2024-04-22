@@ -1,0 +1,4 @@
+### Interface Segregation Principle
+Diz que as interfaces de um sistema devem ser quebradas em interfaces cada vez menores para que não seja necessário para uma classe implementar métodos que ele não utilizará, isso faz com que o código fique mais limpo e ajuda na mantenubilidade, já que o código ficará mais fácil de se extender.
+
+Neste exemplo, são implementadas 3 interfaces distintas que realizam uma ação específica: trabalhar, comer e dormir. A classe "Trabalhador Humano" implementa as três interfaces, mas o "Trabalhador Robô" apenas implementa a interface de trabalhar. Ao fazer essa separação entre interfaces possibilita as classes implementarem somente os métodos necessários, diferentemente do exemplo errado, onde a classe RobotWorker precisa implementar métodos que não serão necessários.

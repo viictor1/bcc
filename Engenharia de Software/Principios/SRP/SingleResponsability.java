@@ -12,7 +12,6 @@ class Pedido {
         for (Item item : itens) {
             total += item.getPreco();
         }
-        System.out.println("Total do Pedido: " + total);
     }
 
     public List<Item> getItens() {
@@ -41,5 +40,9 @@ class PedidoViewer {
 
     public void mostrarPedido(Pedido pedido) {
         System.out.println("Mostrando pedido...");
+    }
+
+    public void imprimirTotal(Pedido pedido){
+        System.out.println(pedido.calcularTotal());
     }
 }

@@ -1,0 +1,4 @@
+### Demeter
+Define que os métodos de uma classe devem utilizar somente métodos: da própria classe, parâmetros passados, objetos criados dentro do método e atributos da classe. Isso contribui para deixar as interfaces mais simples, diminuir acoplamento e deixar mais simples de dar manutenção. 
+
+No exemplo, é mostrado duas formas de como conseguir o modelo do carro de uma Pessoa, a forma errada acessa a pessoa, depois acessa o carro e por fim consegue o modelo, esse método fere o princípio de deméter porque permite que o carro seja acessado indiretamente pela classe Pessoa. A opção certa não fere o princípio porque implementa um método que acessa e retorna diretamente o modelo do carro, com isso o usuário não necessita saber da estrutura interna da classe Carro, e uma mudança na classe.

@@ -26,9 +26,6 @@ public class Main {
     public static void main(String[] args) {
         Pessoa pessoa = new Pessoa();
 
-        // Violando a Lei de Deméter
-        System.out.println(pessoa.getCarro().getModelo());
-        // Não viola a Lei de Deméter
         System.out.println(pessoa.getModeloDoCarro());
     }
 }
