@@ -5,5 +5,5 @@ Para fazer isso, o Adapter adiciona um nível de abstração acima do objeto que
 
 O código de exemplo funciona da seguinte maneira, o cliente consegue se comunicar diretamente com "Target", porém não consegue entender "Adaptee", a classe "Adaptor" funciona como um tradutor de "Adaptee", o cliente consegue se comunicar com essa classe através dessa abstração.
 
-Diagrama UML do Adapter padrão:
+Diagrama UML do Adapter padrão: <br>
 ![AdapterPatternUML drawio](https://refactoring.guru/images/patterns/diagrams/adapter/structure-object-adapter.png)

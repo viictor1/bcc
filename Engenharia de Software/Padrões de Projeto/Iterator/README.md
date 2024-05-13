@@ -7,4 +7,5 @@ Essa classe é implementada pelas classes Iterator concretas que fornecem a impl
 A classe WordsCollection é uma classe concreta de coleções, que disponibiliza dois métodos que retornam iteradores e métodos para manipular a coleção.
 Com isso, o cliente pode manipular a coleção de dados e iterar sobre ela sem precisar saber como está sendo implementada.
 
+Diagrama UML da estrutra do Iterator: <br>
 ![IteratorPatternUML drawio](https://refactoring.guru/images/patterns/diagrams/iterator/structure.png)
