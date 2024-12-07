@@ -1,4 +1,0 @@
-### Open Closed Principle
-Cada entidade de um software deve ser fechada para modificações diretas, mas aberta para extensões. Isso significa que, ao surgir a necessidade de alterar o comportamento de uma entidade, a melhor prática é não modificar o código original, mas sim estender sua funcionalidade por meio de herança ou outras técnicas de extensibilidade. Deixando o código mais seguro e de fácil reusabilidade, já que não precisa se preocupar com a entidade principal ser alterada.
-
-Neste exemplo existe uma classe jogador que define as propriedades que todos os jogadores possuem, além disso, existem as classes específicas para cada posição, que herdam da classe jogador. Quando se quer adicionar uma nova posição, ao invés de modificar a classe principal adicionando mais um caso para o switch, como no exemplo errado, se herda dessa classe e modifica a funcionalidade "getPosicao".
